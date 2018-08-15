@@ -2,6 +2,12 @@
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2
+general:
+  artifacts:
+    - "/go/src/github.com/giannimassi/tiler/build/mac/tiler"
+    - "/go/src/github.com/giannimassi/tiler/build/windows/tiler.exe"
+    - "/go/src/github.com/giannimassi/tiler/build/linux/tiler"
+
 jobs:
   build:
     docker:
@@ -24,5 +30,4 @@ jobs:
     # specify any bash command here prefixed with `run: `
     - run: go get -v -t -d ./...
     - run: go test -v ./...
-    - run: go build
-    - run: ./buildall.sh $CIRCLE_ARTIFACTS
+    - run: ./buildall.sh .
