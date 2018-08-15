@@ -15,7 +15,7 @@ import (
 var (
 	app = kingpin.New("Tiler", "A tool for making tiles from an image.")
 	verbose = app.Flag("verbose", "Verbose mode.").Short('v').Bool()
-	tileSize = app.Flag("tile", "Tile size (default 256).").Default("256").Int()
+	tileSize = app.Flag("tile", "Tile size (default 256).").Default("256").Short('t').Int()
 	outputFormat = app.Flag("format", "Image output format.").Short('f').Default("png").HintOptions("jpeg", "png").String()
 	inputFile = app.Arg("input", "Input image file path (accepted jpeg, png).").Required().ExistingFile()
 	outputDir = app.Arg("output", "Output directory.").Default(".").ExistingDir()
