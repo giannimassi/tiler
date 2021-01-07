@@ -10,6 +10,7 @@ import (
 	"path"
 	"image/jpeg"
 	"image/png"
+	 "math"
 )
 
 var (
@@ -54,8 +55,8 @@ func main() {
 		fmt.Printf("Cropping image (size %dx%d)\n", width, height)
 	}
 
-	nColumns := width/ *tileSize
-	nRows := height/ *tileSize
+	nColumns := int(math.Ceil(float64(width)/ float64(*tileSize)))
+	nRows := int(math.Ceil(float64(height) / float64(*tileSize)))
 
 	var fileName string
 
